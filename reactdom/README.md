@@ -1,0 +1,11 @@
+# React Router DOM steps 
+- install using npm i react-router-dom
+- in main.jsx import { BrowserRouter} from 'react-router-dom' and wrap the app in it
+- In App.jsx import { Routes, Route } from 'react-router-dom'
+- make <Routes> (collection of routes) and inside it add <Route/>
+- in <Route/> add path(where to go) and element(what to render) attributes
+- In Navbar use <Link> instead of <a> tag to redirect to any specific route
+- Make Navbar component and add it before <Routes> in App.jsx
+- Nested Routes can be made by writing in this way - path="product/men"
+- Dynamic Routes can be made by writing in this way - path="/about/:id"
+- You can access the id by using useParams hook in that component you rendered in dynamic route
