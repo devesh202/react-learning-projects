@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const Navbar = (props) => {
      const [newTheme,setNewTheme] = useState('')
+     
   return (
     <div>
         <h1>Theme is {props.theme}</h1>
