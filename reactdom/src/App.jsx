@@ -9,7 +9,6 @@ import Product from './components/Product'
 import Randomabout from './components/Randomabout'
 import Course from './components/Course'
 import Anycourse from './components/Anycourse'
-import NotFound from './components/NotFound'
 
 const App = () => {
   return (
@@ -30,10 +29,9 @@ const App = () => {
   <Route path='/course/:courseId' element={<Anycourse/>}/>
 
   {/* Notfound page  */}
-  <Route path='/*' element={<NotFound/>}></Route>
-
-
-        
+  <Route path='*' element={<NotFound/>}/>
+         
+         
 
 
 
