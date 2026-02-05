@@ -4,8 +4,8 @@ import Section2 from './Section2'
 
 const Sections = () => {
   return (
-    <div className='h-221 flex justify-between bg-zinc-900'>
-      <Section1/>
+    <div className='h-fit w-screen flex justify-center items-center bg-zinc-900'>
+      
       <Section2/>
     </div>
   )

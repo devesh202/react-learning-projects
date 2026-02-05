@@ -1,12 +1,13 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import ProductContext from './context/ProductContext'
+import App from './App'
 import './index.css'
-import App from './App.jsx'
-import UserContext from './context/UserContext.jsx'
-import ThemeContext from './context/ThemeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <ThemeContext>
-    <App />
-    </ThemeContext>
+  <BrowserRouter>
+    <ProductContext>
+      <App />
+    </ProductContext>
+  </BrowserRouter>
 )
