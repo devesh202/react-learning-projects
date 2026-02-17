@@ -4,6 +4,7 @@ import Home from '../pages/Home'
 import About from '../pages/About'
 import Recipes from '../pages/Recipes'
 import Create from '../pages/Create'
+import SingleRecipe from '../pages/SingleRecipe'
 const Mainroutes = () => {
   return (
     <Routes>
@@ -12,7 +13,8 @@ const Mainroutes = () => {
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/about" element={<About/>} />
         <Route path="/create-recipe" element={<Create/>} />
-      </Routes>
+        <Route path="/recipes/details/:id" element={<SingleRecipe/>} />
+      </Routes >
   )
 }
 

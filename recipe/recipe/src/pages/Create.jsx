@@ -2,15 +2,21 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import RecipeContext, { recipeContext } from "../context/RecipeContext";
 import { nanoid } from "nanoid";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Create = () => {
   const { register, handleSubmit ,reset,formState: { errors },} = useForm();
+  const navigate = useNavigate();
   const {data,setData} = useContext(recipeContext)
   const submitHandler = (recipe) => {
 
     recipe.id = nanoid();
     setData(prev=>[ ...prev,recipe])
+    toast.success("New recipe added successfully!");
+
         console.log(recipe);
+        navigate('/recipes')
 
     reset();
       
