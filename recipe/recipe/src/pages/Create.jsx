@@ -112,10 +112,12 @@ const Create = () => {
             className="border rounded-md p-3 outline-none text-gray-900 focus:ring-2 focus:ring-red-400 transition"
             {...register("category", { required: "Select a category" })}
           >
-            <option value="">Select category</option>
-            <option value="starter">Starter</option>
-            <option value="main-course">Main Course</option>
-            <option value="dessert">Dessert</option>
+             <option value="">Select category</option>
+  <option value="Italian">Italian</option>
+  <option value="Fast Food">Fast Food</option>
+  <option value="Dessert">Dessert</option>
+  <option value="Indian">Indian</option>
+  <option value="Breakfast">Breakfast</option>
           </select>
           {errors.category && (
             <small className="text-red-500 mt-1">{errors.category.message}</small>
