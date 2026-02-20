@@ -15,11 +15,19 @@ const SingleRecipe = () => {
     const index = data.findIndex((recipe)=> id === recipe.id)
     const copyData = [...data];
     copyData[index] ={...copyData[index],...recipe}
-    console.log(index);
+    console.log(copyData);
     setData(copyData)
     toast.success("Recipe updated successfully!");
 
 
+
+  }
+
+  const deleteHandler = () => {
+    const filterData = data.filter((recipe)=>recipe.id !== id)
+    setData(filterData)
+    toast.success("Recipe deleted successfully!");
+    navigate('/recipes')
   }
    const recipe = data.find((item) => item.id === id);
 
@@ -167,11 +175,8 @@ const SingleRecipe = () => {
 
           <button
             type="button"
-            onClick={() => {
-              const filtered = data.filter((item) => item.id !== id);
-              setData(filtered);
-              navigate("/recipes");
-            }}
+            onClick={deleteHandler}
+            
             className="flex-1 bg-gray-800 hover:bg-black text-white font-semibold py-3 rounded-xl shadow-lg transition transform hover:scale-105"
           >
             Delete
