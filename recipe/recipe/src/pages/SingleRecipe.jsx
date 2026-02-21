@@ -32,7 +32,9 @@ const SingleRecipe = () => {
    const recipe = data.find((item) => item.id === id);
 
   useEffect(() => {
+    console.log("singlerecipe mounted");
     if(recipe) reset(recipe)
+      return () => console.log("singlerecipe unmounted");
   },[recipe, reset]
     )
 

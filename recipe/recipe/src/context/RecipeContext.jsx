@@ -1,6 +1,8 @@
-import React, { createContext  ,useState } from 'react'
+import React, { createContext  ,useEffect,useState } from 'react'
 
 export const recipeContext = createContext(null)
+
+
 const dummyRecipes = [
   {
     id: "1",
@@ -77,6 +79,14 @@ const dummyRecipes = [
 
 const RecipeContext = (props) => {
    const [data, setData] = useState(dummyRecipes);
+   useEffect(() => {
+  const storedRecipes = JSON.parse(localStorage.getItem('recipes'));
+  if (storedRecipes && storedRecipes.length) {
+    setData(storedRecipes);
+  } else {
+    setData(dummyRecipes);
+  }
+}, []);
    console.log(data);
   return (
     <recipeContext.Provider value={{data,setData}} >
