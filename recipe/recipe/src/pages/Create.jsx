@@ -13,8 +13,15 @@ const Create = () => {
 
     recipe.id = nanoid();
     
-    setData(prev=>[ ...prev,recipe])
-    localStorage.setItem('recipes',JSON.stringify([...data,recipe]))
+   
+      const stored = JSON.parse(localStorage.getItem("recipes")) || [];
+      localStorage.setItem(
+        "recipes",
+        JSON.stringify([...stored, recipe])
+      );
+
+       setData(prev=>[ ...prev,recipe])
+
   
     toast.success("New recipe added successfully!");
 

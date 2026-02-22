@@ -78,14 +78,13 @@ const dummyRecipes = [
 
 
 const RecipeContext = (props) => {
-   const [data, setData] = useState(dummyRecipes);
+   const [data, setData] = useState([]);
    useEffect(() => {
-  const storedRecipes = JSON.parse(localStorage.getItem('recipes'));
-  if (storedRecipes && storedRecipes.length) {
-    setData(storedRecipes);
-  } else {
-    setData(dummyRecipes);
-  }
+  const storedRecipes = JSON.parse(localStorage.getItem('recipes')) || [];
+  console.log(storedRecipes)
+  const add = [...storedRecipes,...dummyRecipes];
+  console.log(add);
+  setData(add); 
 }, []);
    console.log(data);
   return (
