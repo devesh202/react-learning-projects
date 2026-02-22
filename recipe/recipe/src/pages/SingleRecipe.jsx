@@ -12,11 +12,15 @@ const SingleRecipe = () => {
   const {data,setData} = useContext(recipeContext)
   const submitHandler = (recipe) => {
     console.log(recipe)
-    const index = data.findIndex((recipe)=> id === recipe.id)
-    const copyData = [...data];
-    copyData[index] ={...copyData[index],...recipe}
-    console.log(copyData);
-    setData(copyData)
+    const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+    // const index = data.findIndex((recipe)=> id === recipe.id)
+    // const copyData = [...data];
+    // copyData[index] ={...copyData[index],...recipe}
+    // console.log(copyData);
+    const updatedRecipes = storedRecipes.map(r=>r.id === id ? {...r,...recipe}:r)
+    localStorage.setItem("recipes",JSON.stringify(updatedRecipes))
+    console.log(updatedRecipes)
+    setData(updatedRecipes)
     toast.success("Recipe updated successfully!");
 
 
@@ -24,12 +28,15 @@ const SingleRecipe = () => {
   }
 
   const deleteHandler = () => {
-    const filterData = data.filter((recipe)=>recipe.id !== id)
+    const storedRecipes = JSON.parse(localStorage.getItem("recipes")) || [];
+    const filterData = storedRecipes.filter((recipe)=>recipe.id !== id)
+    localStorage.setItem("recipes", JSON.stringify(filterData));
     setData(filterData)
     toast.success("Recipe deleted successfully!");
     navigate('/recipes')
   }
    const recipe = data.find((item) => item.id === id);
+
 
   useEffect(() => {
     console.log("singlerecipe mounted");

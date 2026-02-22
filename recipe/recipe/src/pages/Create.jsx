@@ -11,24 +11,42 @@ const Create = () => {
   const {data,setData} = useContext(recipeContext)
   const submitHandler = (recipe) => {
 
-    recipe.id = nanoid();
+    // recipe.id = nanoid();
     
    
-      const stored = JSON.parse(localStorage.getItem("recipes")) || [];
-      localStorage.setItem(
-        "recipes",
-        JSON.stringify([...stored, recipe])
-      );
+    //   const stored = JSON.parse(localStorage.getItem("recipes")) || [];
+    //   localStorage.setItem(
+    //     "recipes",
+    //     JSON.stringify([...stored, recipe])
+    //   );
 
-       setData(prev=>[ ...prev,recipe])
+    //    setData(prev=>[ ...prev,recipe])
 
   
-    toast.success("New recipe added successfully!");
+    // toast.success("New recipe added successfully!");
 
-        console.log(recipe);
-        navigate('/recipes')
+    //     console.log(recipe);
+    //     navigate('/recipes')
 
-    reset();
+    // reset();
+      const newRecipe = {
+    ...recipe,
+    id: nanoid()
+  };
+
+  // Update state first
+  const updatedRecipes = [...data, newRecipe];
+
+  // Sync to localStorage
+  localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+
+  // Update context
+  setData(updatedRecipes);
+
+  toast.success("New recipe added successfully!");
+
+  navigate("/recipes");
+  reset();
       
   }
   return (
