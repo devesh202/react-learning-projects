@@ -37,6 +37,15 @@ const Navbar = () => {
         </NavLink>
 
         <NavLink
+          to="/fav"
+          className={({ isActive }) =>
+            `${linkStyle} ${isActive ? "text-red-400" : ""}`
+          }
+        >
+          Favourite
+        </NavLink>
+
+        <NavLink
           to="/create-recipe"
           className={({ isActive }) =>
             `px-5 py-2 rounded-lg font-semibold transition-all duration-300 
@@ -46,6 +55,8 @@ const Navbar = () => {
         >
           Create
         </NavLink>
+
+        
 
       </div>
     </nav>
